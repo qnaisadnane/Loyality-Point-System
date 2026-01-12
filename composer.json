@@ -1,0 +1,12 @@
+{
+    "name": "safiy/loyality_point_system",
+    "description": "loyality",
+    "autoload": {
+        "psr-4": {
+            "Safiy\\LoyalityPointSystem\\": "src/"
+        }
+    },
+    "require": {
+        "twig/twig": "^3.22"
+    }
+}
