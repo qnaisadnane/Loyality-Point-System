@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ShopEasy</title>
+    <link rel="stylesheet" href="/loyality_point_system/public/css/style.css">
+</head>
+<body>
+    <nav>
+        <h1>ShopEasy</h1>
+        <ul>
+            <li><a href="/loyality_point_system/public/">Accueil</a></li>
+            {% if session.user_id is defined %}
+                <li><a href="/loyality_point_system/public/dashboard">Dashboard</a></li>
+                <li><a href="/loyality_point_system/public/logout">Déconnexion</a></li>
+            {% else %}
+                <li><a href="/loyality_point_system/public/login">Connexion</a></li>
+                <li><a href="/loyality_point_system/public/register">Inscription</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

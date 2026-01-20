@@ -1,0 +1,31 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<div class="auth-form">
+    <h2>Inscription</h2>
+
+    <form method="post" action="/loyality_point_system/public/register">
+        <div>
+            <label for="name">Nom</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+
+    <p>
+        Déjà un compte ?
+        <a href="/loyality_point_system/public/login">Se connecter</a>
+    </p>
+</div>
+{% endblock %}

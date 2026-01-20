@@ -1,36 +1,38 @@
 <?php
+namespace App\Models;
+use App\Core\Database;
+use PDO;
 
 Class User{
   private PDO $db;
 
     public function __construct(){
-    $this->$db = Database::getConnection();
+    $this->db = Database::getConnection();
     }
 
-    public function create($email , $password , $name){
+    public function create(string $email , string $password , string $name):bool{
+
         $passwordhash = password_hash($password , PASSWORD_BCRYPT);
-        $sql = "INSERT INTO user (email , password_hash , name) Values (?,?,?)";
+        $sql = "INSERT INTO users (email , password_hash , name) Values (?,?,?)";
         $stmt = $this->db->prepare($sql);
         return $stmt->execute([$email , $passwordhash , $name]);
 
     }
 
-    public function login($email , $password):array{
-    $sql = "select * from user where email =?";
-    $stmt = $this->db->prepare($sql);
-    $stmt->execute([$email]);
+    public function login($email , $password){
+    $stmt = $this->db->prepare("select * from users where email = :email");
+    $stmt->execute(['email'=>$email]);
     $user = $stmt->fetch();
 
     if($user && password_verify($password , $user['password_hash'])){
         return $user;
     }
-        return null;
+        return false;
     }
 
-    public function findUserById($id){
-    $sql = "select * from user where id = ?";
-    $stmt = $this->db->prepare($sql);
-    $stmt->execute([$id]);
+    public function findById($id){
+    $stmt = $this->db->prepare("select * from users where id = :id");
+    $stmt->execute(['id'=>$id]);
     return $stmt->fetch();
     }
 }

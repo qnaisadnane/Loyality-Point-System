@@ -3,7 +3,7 @@
     "description": "loyality",
     "autoload": {
         "psr-4": {
-            "Safiy\\LoyalityPointSystem\\": "src/"
+            "App\\": "src/"
         }
     },
     "require": {

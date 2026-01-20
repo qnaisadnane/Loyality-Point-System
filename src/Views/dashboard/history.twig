@@ -1,0 +1,21 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<h2>Historique</h2>
+
+<table>
+<tr>
+    <th>Date</th>
+    <th>Montant</th>
+    <th>Points</th>
+</tr>
+
+{% for t in transactions %}
+<tr>
+    <td>{{ t.created_at }}</td>
+    <td>{{ t.amount }} €</td>
+    <td>{{ t.points }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

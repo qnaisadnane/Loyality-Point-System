@@ -1,0 +1,12 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<div class="dashboard">
+    <h2>Bienvenue {{ user.name }} !</h2>
+
+    <div class="stat-card">
+        <h3>Vos points</h3>
+        <p class="points">{{ user.total_points }}</p>
+    </div>
+</div>
+{% endblock %}
