@@ -15,8 +15,8 @@ $router->post('/login', AuthController::class, 'login');
 
 $router->get('/logout', AuthController::class, 'logout');
 
-$router->get('/dashboard', DashboardController::class, 'index');
-
 $router->get('/history', HistoryController::class, 'index');
 
 $router->get('/rewards', RewardsController::class, 'index');
+
+$router->post('/rewards/redeem', RewardsController::class, 'redeem');

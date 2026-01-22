@@ -41,4 +41,17 @@ Class User{
         $stmt->execute(['user_id'=>$user_id]);
         return $stmt->fetchAll();
     }
+
+    public function updatePoints($user_id, $points){
+        $stmt = $this->db->prepare("UPDATE users SET total_points = total_points + ? WHERE id = ?");
+        $stmt->execute([$points, $user_id]);
+    }
+
+    public function addTransaction($user_id, $type, $amount, $description){
+        $user = $this->findById($user_id);
+        $balance_after = $user['total_points'] + $amount;
+        $stmt = $this->db->prepare("INSERT INTO points_transactions (user_id, type, amount, description, balance_after) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$user_id, $type, $amount, $description, $balance_after]);
+        $this->updatePoints($user_id, $amount);
+    }
 }

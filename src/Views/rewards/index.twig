@@ -15,10 +15,10 @@
             </p>
 
             {% if user.total_points >= reward.points_required %}
-                <a class="btn"
-                   href="/loyality_point_system/public/rewards/redeem/{{ reward.id }}">
-                    Échanger
-                </a>
+                <form method="post" action="/loyality_point_system/public/rewards/redeem" style="display: inline;">
+                    <input type="hidden" name="reward_id" value="{{ reward.id }}">
+                    <button type="submit" class="btn">Échanger</button>
+                </form>
             {% else %}
                 <p class="disabled">Points insuffisants</p>
             {% endif %}
