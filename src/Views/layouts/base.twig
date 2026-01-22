@@ -2,26 +2,33 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopEasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/loyality_point_system/public/css/style.css">
 </head>
 <body>
     <nav>
-        <h1>ShopEasy</h1>
+        <h1>🏪 ShopEasy</h1>
         <ul>
             <li><a href="/loyality_point_system/public/">Accueil</a></li>
             {% if session.user_id is defined %}
-                <li><a href="/loyality_point_system/public/history">Historique</a></li>
-                <li><a href="/loyality_point_system/public/rewards">Récompenses</a></li>
-                <li><a href="/loyality_point_system/public/logout">Déconnexion</a></li>
+                <li><a href="/loyality_point_system/public/history">📊 Historique</a></li>
+                <li><a href="/loyality_point_system/public/rewards">🎁 Récompenses</a></li>
+                <li><a href="/loyality_point_system/public/logout">🚪 Déconnexion</a></li>
             {% else %}
-                <li><a href="/loyality_point_system/public/login">Connexion</a></li>
-                <li><a href="/loyality_point_system/public/register">Inscription</a></li>
+                <li><a href="/loyality_point_system/public/login">🔐 Connexion</a></li>
+                <li><a href="/loyality_point_system/public/register">📝 Inscription</a></li>
             {% endif %}
         </ul>
     </nav>
     <main>
         {% block content %}{% endblock %}
     </main>
+    <footer>
+        <p>&copy; 2026 ShopEasy - Programme de Fidélité</p>
+    </footer>
 </body>
 </html>
