@@ -1,8 +1,19 @@
 {% extends 'layouts/base.twig' %}
 {% block content %}
+{% if session.user_id is defined %}
+<div class="dashboard">
+    <h2>Bienvenue {{ user.name }} !</h2>
+
+    <div class="stat-card">
+        <h3>Vos points</h3>
+        <p class="points">{{ user.total_points }}</p>
+    </div>
+</div>
+{% else %}
 <div class="hero">
     <h2>Bienvenue sur ShopEasy</h2>
     <p>Gagnez des points à chaque achat !</p>
     <a href="/loyality_point_system/public/register">S'inscrire</a>
 </div>
+{% endif %}
 {% endblock %}

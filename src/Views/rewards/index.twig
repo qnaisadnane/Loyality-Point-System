@@ -1,0 +1,30 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Catalogue des récompenses{% endblock %}
+
+{% block content %}
+<h2>Catalogue des récompenses</h2>
+
+<div class="rewards-grid">
+    {% for reward in rewards %}
+        <div class="reward-card">
+            <h3>{{ reward.name }}</h3>
+            <p>{{ reward.description }}</p>
+            <p>
+                <strong>{{ reward.points_required }}</strong> points
+            </p>
+
+            {% if user.total_points >= reward.points_required %}
+                <a class="btn"
+                   href="/loyality_point_system/public/rewards/redeem/{{ reward.id }}">
+                    Échanger
+                </a>
+            {% else %}
+                <p class="disabled">Points insuffisants</p>
+            {% endif %}
+        </div>
+    {% else %}
+        <p>Aucune récompense disponible.</p>
+    {% endfor %}
+</div>
+{% endblock %}

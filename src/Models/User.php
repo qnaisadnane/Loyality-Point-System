@@ -35,4 +35,10 @@ Class User{
     $stmt->execute(['id'=>$id]);
     return $stmt->fetch();
     }
+
+    public function getTransactions($user_id){
+        $stmt = $this->db->prepare("SELECT * FROM points_transactions WHERE user_id = :user_id ORDER BY createdat DESC");
+        $stmt->execute(['user_id'=>$user_id]);
+        return $stmt->fetchAll();
+    }
 }
