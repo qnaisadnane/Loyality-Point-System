@@ -1,0 +1,14 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+<h2>Récompenses</h2>
+
+<ul>
+{% for reward in rewards %}
+    <li>
+        <strong>{{ reward.name }}</strong>
+        - {{ reward.cost_points }} pts
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}
