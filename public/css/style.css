@@ -54,13 +54,32 @@ main {
     margin-bottom: 20px;
 }
 
+.auth-box div {
+    margin-bottom: 15px;
+}
+
+.auth-box label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
 .auth-box input {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 0;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-box input:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
 }
 
 .auth-box button {
@@ -72,7 +91,9 @@ main {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
     margin-top: 10px;
+    transition: background 0.3s ease;
 }
 
 .auth-box button:hover {
@@ -87,6 +108,10 @@ main {
 .auth-box a {
     color: #667eea;
     text-decoration: none;
+}
+
+.auth-box a:hover {
+    text-decoration: underline;
 }
 
 .dashboard {
